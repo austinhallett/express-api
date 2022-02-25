@@ -3,7 +3,7 @@ services:
   api:
     stdin_open: true
     ports:
-      - "80:80"
+      - "80:1337"
     restart: unless-stopped
     build:
         context: ./ 
