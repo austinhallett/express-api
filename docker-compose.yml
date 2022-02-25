@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  api:
+    stdin_open: true
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    build:
+        context: ./ 
+    networks:
+      - app
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:3.6.19-xenial
+    ports:
+      - "27017:27017"
+    networks:
+      - app
+    volumes:
+      - mongodata:/data/db
+networks:
+  app:
+    driver: bridge
+volumes:
+  mongodata:
