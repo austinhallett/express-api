@@ -4,6 +4,7 @@
   "description": "This is a template for a basic express API using mongoDB",
   "main": "index.js",
   "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
