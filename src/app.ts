@@ -1,7 +1,11 @@
 import express from "express";
+import config from 'config';
+import connect from './utils/connect';
 
-const app = express()
+const port = config.get<number>('port');
+const app = express();
 
-app.listen(1337, () => {
-    console.log("Server is listening on port 1337")
+app.listen(port, async () => {
+    console.log(`Server running on port ${port}`);
+    await connect();
 })
