@@ -9,7 +9,7 @@ async function connect() {
     await mongoose.connect(dbUri);
     logger.info("Connected to MongoDB");
   } catch (error) {
-    logger.error("Could not connect to MongoDB", error);
+    logger.error("Could not connect to MongoDB");
     process.exit(1);
   }
 }
