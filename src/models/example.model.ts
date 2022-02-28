@@ -7,8 +7,8 @@ export interface ExampleInput {
 }
 
 export interface ExampleDocument extends ExampleInput, mongoose.Document {
-    created: Date;
-    updated: Date;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 const exampleSchema = new mongoose.Schema({
@@ -26,6 +26,6 @@ const exampleSchema = new mongoose.Schema({
     timestamps: true,
 });
 
-const ExampleModel = mongoose.model('Example', exampleSchema);
+const ExampleModel = mongoose.model<ExampleDocument>('Example', exampleSchema);
 
 export default ExampleModel;
