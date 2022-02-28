@@ -1,10 +1,13 @@
 import { Request, Response } from 'express'
 import logger from '../utils/logger';
-export function createExampleHandler(req: Request, res: Response) {
-    try {
-        // const example = //call create example service
-    } catch (e) {
-        logger.error(e);
-        return res.status(409);
-    }
+import { createExample } from '../service/example.service';
+import { CreateExampleInput } from '../schema/example.schema';
+
+export async function createExampleHandler(
+    req: Request<{}, {}, CreateExampleInput["body"]>,
+    res: Response
+) {
+
+    const product = await createExample({ ...req.body })
+    return res.send(product);
 }
